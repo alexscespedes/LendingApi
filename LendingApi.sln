@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LendingApi", "LendingApi.csproj", "{391124EE-8A67-6200-5C8F-A767675664BC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{391124EE-8A67-6200-5C8F-A767675664BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{391124EE-8A67-6200-5C8F-A767675664BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{391124EE-8A67-6200-5C8F-A767675664BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{391124EE-8A67-6200-5C8F-A767675664BC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B61EE413-8D9A-496E-86D9-1EC62710292A}
+	EndGlobalSection
+EndGlobal
