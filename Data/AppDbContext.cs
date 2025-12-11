@@ -26,5 +26,17 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<Payment>()
             .Property(p => p.Amount)
             .HasPrecision(18, 2);
+
+        modelBuilder.Entity<Payment>()
+            .HasOne(p => p.Loan)
+            .WithMany(l => l.Payments)
+            .HasForeignKey(p => p.LoanId)
+            .OnDelete(DeleteBehavior.Cascade);
+
+        modelBuilder.Entity<Payment>()
+            .HasOne(p => p.User)
+            .WithMany(u => u.Payments)
+            .HasForeignKey(p => p.UserId)
+            .OnDelete(DeleteBehavior.NoAction);
     }
 }
