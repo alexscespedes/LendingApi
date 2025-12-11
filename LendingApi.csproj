@@ -21,7 +21,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Application/" />
+    <Folder Include="Controllers/" />
     <Folder Include="Core/" />
+    <Folder Include="Data/" />
   </ItemGroup>
 
 </Project>
