@@ -1,4 +1,4 @@
-namespace LendingApi.Enums;
+namespace LendingApi.Core.Enums;
 
 public enum Role
 {

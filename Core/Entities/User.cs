@@ -1,7 +1,7 @@
 using System;
-using LendingApi.Enums;
+using LendingApi.Core.Enums;
 
-namespace LendingApi.Models;
+namespace LendingApi.Core.Entities;
 
 public class User
 {

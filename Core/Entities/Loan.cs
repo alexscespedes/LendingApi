@@ -1,7 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using LendingApi.Core.Enums;
 
-namespace LendingApi.Models;
+namespace LendingApi.Core.Entities;
 
 public class Loan
 {

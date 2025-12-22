@@ -1,4 +1,4 @@
-namespace LendingApi.Models;
+namespace LendingApi.Core.Enums;
 
 public enum LoanStatus
 {

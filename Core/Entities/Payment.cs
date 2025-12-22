@@ -1,6 +1,6 @@
 using System;
 
-namespace LendingApi.Models;
+namespace LendingApi.Core.Entities;
 
 public class Payment
 {

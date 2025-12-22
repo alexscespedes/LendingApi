@@ -22,9 +22,10 @@
 
   <ItemGroup>
     <Folder Include="Application/" />
+    <Folder Include="Application/Repositories/" />
+    <Folder Include="Application/Services/" />
     <Folder Include="Controllers/" />
     <Folder Include="Core/" />
-    <Folder Include="Data/" />
   </ItemGroup>
 
 </Project>

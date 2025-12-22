@@ -1,5 +1,5 @@
 using System;
-using LendingApi.Models;
+using LendingApi.Core.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace LendingApi.Data;
