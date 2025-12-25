@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.22">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,6 +25,8 @@
     <Folder Include="Application/" />
     <Folder Include="Application/Repositories/" />
     <Folder Include="Application/Services/" />
+    <Folder Include="Application/Services/Auth/" />
+    <Folder Include="Application/Services/Auth/DTOs/" />
     <Folder Include="Controllers/" />
     <Folder Include="Core/" />
   </ItemGroup>
