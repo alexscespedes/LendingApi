@@ -11,5 +11,5 @@ public interface ICustomerRepository
     Task<IEnumerable<Customer>> SearchByName(string name);
     Task<bool> EmailExists(string email);
     Task<Customer> Update(int id, Customer customer);
-    Task Delete(int customerId);
+    Task Delete(int id);
 }

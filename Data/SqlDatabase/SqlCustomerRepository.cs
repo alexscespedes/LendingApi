@@ -24,10 +24,10 @@ public class SqlCustomerRepository : ICustomerRepository
         return result.Entity;
     }
 
-    public async Task Delete(int customerId)
+    public async Task Delete(int id)
     {
         var result = await _context.Customers
-            .FirstOrDefaultAsync(e => e.Id == customerId);
+            .FirstOrDefaultAsync(c => c.Id == id);
 
         if (result != null)
         {
