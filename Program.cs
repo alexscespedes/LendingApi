@@ -1,4 +1,5 @@
 using System.Text.Json.Serialization;
+using LendingApi.Application.Helpers;
 using LendingApi.Application.Repositories;
 using LendingApi.Application.Services;
 using LendingApi.Application.Services.Auth;
@@ -36,6 +37,13 @@ builder.Services.AddScoped<JwtService>();
 
 builder.Services.AddScoped<IUserRepository, SqlUserRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+builder.Services.AddScoped<ILoanRepository, SqlLoanRepository>();
+builder.Services.AddScoped<ILoanService, LoanService>();
+
+builder.Services.AddScoped<CustomerHelper>();
+builder.Services.AddScoped<LoanHelper>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
