@@ -11,5 +11,4 @@ public interface ICustomerService
     Task<IEnumerable<Customer>> SearchCustomersByName(string name);
     Task<bool> UpdateCustomer(int id, Customer customer);
     Task<bool> DeleteCustomer(int id);
-    bool IsValidEmail(string email);
 }

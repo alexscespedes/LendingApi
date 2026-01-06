@@ -1,5 +1,6 @@
 using System;
 using System.Text.RegularExpressions;
+using LendingApi.Application.Helpers;
 using LendingApi.Application.Repositories;
 using LendingApi.Core.Entities;
 
@@ -8,10 +9,12 @@ namespace LendingApi.Application.Services;
 public class CustomerService : ICustomerService
 {
     private readonly ICustomerRepository _repository;
+    private readonly CustomerHelper _helper;
 
-    public CustomerService(ICustomerRepository repository)
+    public CustomerService(ICustomerRepository repository, CustomerHelper helper)
     {
         _repository = repository;
+        _helper = helper;
     }
 
     public async Task<bool> CreateCustomer(Customer customer)
@@ -19,7 +22,7 @@ public class CustomerService : ICustomerService
         if (string.IsNullOrWhiteSpace(customer.FirstName))
             return false;
         
-        if (!IsValidEmail(customer.Email!))
+        if (!_helper.IsValidEmail(customer.Email!))
             return false;
 
         var emailExisits = await _repository.EmailExists(customer.Email!);
@@ -51,12 +54,6 @@ public class CustomerService : ICustomerService
         return await _repository.GetById(id);
     }
 
-    public bool IsValidEmail(string email)
-    {
-        string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
-        return Regex.IsMatch(email, pattern);
-    }
-
     public async Task<IEnumerable<Customer>> SearchCustomersByName(string name)
     {
         if (string.IsNullOrWhiteSpace(name))
@@ -74,7 +71,7 @@ public class CustomerService : ICustomerService
         if (string.IsNullOrWhiteSpace(existingCustomer.FirstName))
             return false;
         
-        if (!IsValidEmail(existingCustomer.Email!))
+        if (!_helper.IsValidEmail(existingCustomer.Email!))
             return false;
 
         var emailExisits = await _repository.EmailExists(existingCustomer.Email!);
@@ -89,7 +86,6 @@ public class CustomerService : ICustomerService
         existingCustomer.Address = customer.Address;
         
         await _repository.Update(existingCustomer.Id, existingCustomer);
-
         return true;
     }
 }

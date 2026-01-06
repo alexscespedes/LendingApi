@@ -23,6 +23,7 @@
 
   <ItemGroup>
     <Folder Include="Application/" />
+    <Folder Include="Application/Helpers/" />
     <Folder Include="Application/Repositories/" />
     <Folder Include="Application/Services/" />
     <Folder Include="Application/Services/Auth/" />
