@@ -1,5 +1,6 @@
 using LendingApi.Application.Services;
 using LendingApi.Core.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -44,6 +45,7 @@ namespace LendingApi.Controllers
             return CreatedAtAction(nameof(GetPayment), new {id = payment.Id }, payment);
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeletePayment(int id)
         {

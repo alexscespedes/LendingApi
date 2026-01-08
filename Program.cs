@@ -1,3 +1,4 @@
+using System.Text;
 using System.Text.Json.Serialization;
 using LendingApi.Application.Helpers;
 using LendingApi.Application.Repositories;
@@ -5,8 +6,10 @@ using LendingApi.Application.Services;
 using LendingApi.Application.Services.Auth;
 using LendingApi.Data;
 using LendingApi.Data.SqlDatabase;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +29,21 @@ builder.Services.AddControllers()
         options.InvalidModelStateResponseFactory = context =>
         {
             return new BadRequestObjectResult(context.ModelState);
+        };
+    });
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        var key = Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]!);
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(key)
         };
     });
 

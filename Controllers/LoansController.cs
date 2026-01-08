@@ -1,6 +1,7 @@
 using LendingApi.Application.Repositories;
 using LendingApi.Application.Services;
 using LendingApi.Core.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -45,6 +46,7 @@ namespace LendingApi.Controllers
             return CreatedAtAction(nameof(GetLoan), new {id = loan.Id }, loan);
         }
 
+        [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateLoan(int id, Loan loan)
         {
@@ -61,6 +63,7 @@ namespace LendingApi.Controllers
             return NoContent();
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteLoan(int id)
         {
