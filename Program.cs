@@ -44,6 +44,9 @@ builder.Services.AddScoped<ILoanService, LoanService>();
 builder.Services.AddScoped<CustomerHelper>();
 builder.Services.AddScoped<LoanHelper>();
 
+builder.Services.AddScoped<IPaymentRepository, SqlPaymentRepository>();
+builder.Services.AddScoped<IPaymentService, PaymentService>();
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
