@@ -40,7 +40,7 @@ namespace LendingApi.Controllers
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
             var newLoan = await _service.CreateLoan(loan);
-            _logger.LogInformation("Loan added: {Loan}", loan.PrincipalAmount);
+            _logger.LogInformation("Loan added: {Loan}", loan.Id);
 
             return CreatedAtAction(nameof(GetLoan), new {id = loan.Id }, loan);
         }
