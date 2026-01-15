@@ -35,18 +35,12 @@ public class SqlLoanRepository : ILoanRepository
 
     public async Task<IEnumerable<Loan>> GetAll()
     {
-        return await _context.Loans
-            .Include(l => l.Customer)
-            .Include(l => l.User)
-            .ToListAsync();
+        return await _context.Loans.ToListAsync();
     }
 
     public async Task<Loan?> GetById(int id)
     {
-        return await _context.Loans
-            .Include(l => l.Customer)
-            .Include(l => l.User)
-            .FirstOrDefaultAsync(l => l.Id == id);
+        return await _context.Loans.FirstOrDefaultAsync(l => l.Id == id);
     }
 
     public async Task<Loan> Update(int id, Loan loan)

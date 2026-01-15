@@ -4,8 +4,13 @@ using LendingApi.Application.Helpers;
 using LendingApi.Application.Repositories;
 using LendingApi.Application.Services;
 using LendingApi.Application.Services.Auth;
+using LendingApi.Application.Services.CsvExport;
+using LendingApi.Application.Services.CsvImport;
+using LendingApi.Application.Services.DTOs;
 using LendingApi.Data;
 using LendingApi.Data.SqlDatabase;
+using LendingApi.Data.SqlDatabase.BulkImport;
+using LendingApi.Data.SqlDatabase.Export;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -61,9 +66,19 @@ builder.Services.AddScoped<ILoanService, LoanService>();
 
 builder.Services.AddScoped<CustomerHelper>();
 builder.Services.AddScoped<LoanHelper>();
+builder.Services.AddScoped<CsvExportHelper>();
 
 builder.Services.AddScoped<IPaymentRepository, SqlPaymentRepository>();
 builder.Services.AddScoped<IPaymentService, PaymentService>();
+
+builder.Services.AddScoped<IPaymentBulkRepository, PaymentBulkRepository>();
+builder.Services.AddScoped<ICsvParserService, CsvParserService>();
+builder.Services.AddScoped<IPaymentBulkImportService, PaymentBulkImportService>();
+
+builder.Services.AddScoped<IPaymentExportRepository, PaymentExportRepository>();
+builder.Services.AddScoped<ICsvGeneratorService, CsvGeneratorService>();
+builder.Services.AddScoped<IPaymentBulkExportService, PaymentBulkExportService>();
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

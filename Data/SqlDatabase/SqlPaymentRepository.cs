@@ -35,17 +35,11 @@ public class SqlPaymentRepository : IPaymentRepository
 
     public async Task<IEnumerable<Payment>> GetAll()
     {
-        return await _context.Payments
-            .Include(p => p.Loan)
-            .Include(p => p.User)
-            .ToListAsync();
+        return await _context.Payments.ToListAsync();
     }
 
     public async Task<Payment?> GetById(int id)
     {
-        return await _context.Payments
-            .Include(p => p.Loan)
-            .Include(p => p.User)
-            .FirstOrDefaultAsync(p => p.Id == id);
+        return await _context.Payments.FirstOrDefaultAsync(p => p.Id == id);
     }
 }

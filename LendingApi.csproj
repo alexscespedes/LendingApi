@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="CsvHelper" Version="33.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.22" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.22">
@@ -22,14 +23,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application/" />
-    <Folder Include="Application/Helpers/" />
     <Folder Include="Application/Repositories/" />
-    <Folder Include="Application/Services/" />
     <Folder Include="Application/Services/Auth/" />
-    <Folder Include="Application/Services/Auth/DTOs/" />
+    <Folder Include="Application/Services/CsvExport/" />
+    <Folder Include="Application/Services/CsvImport/" />
     <Folder Include="Controllers/" />
     <Folder Include="Core/" />
+    <Folder Include="Data/SqlDatabase/Export/" />
   </ItemGroup>
 
 </Project>
