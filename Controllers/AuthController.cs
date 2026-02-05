@@ -41,8 +41,7 @@ namespace LendingApi.Controllers
             }
 
             var token = _jwtService.GenerateToken(requestDto.Username);
-            return Ok(new { token });
+            return Ok(new { token, requestDto.Username});
         }
-
     }
 }

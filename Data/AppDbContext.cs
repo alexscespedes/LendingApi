@@ -21,7 +21,7 @@ public class AppDbContext : DbContext
 
         modelBuilder.Entity<Loan>()
             .Property(l => l.InterestRate)
-            .HasPrecision(3, 2);
+            .HasPrecision(5, 2);
 
         modelBuilder.Entity<Payment>()
             .Property(p => p.Amount)

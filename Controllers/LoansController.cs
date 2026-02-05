@@ -40,13 +40,17 @@ namespace LendingApi.Controllers
         {
             if (!ModelState.IsValid) return ValidationProblem(ModelState);
 
-            var newLoan = await _service.CreateLoan(loan);
-            _logger.LogInformation("Loan added: {Loan}", loan.Id);
+            var IsValid = await _service.CreateLoan(loan);
 
+            if (!IsValid)
+                return BadRequest("Loan business validation failed: Please try again");
+
+
+            _logger.LogInformation("Loan added: {Loan}", loan.Id);
             return CreatedAtAction(nameof(GetLoan), new {id = loan.Id }, loan);
         }
 
-        [Authorize]
+        // [Authorize]
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateLoan(int id, Loan loan)
         {

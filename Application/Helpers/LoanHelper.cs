@@ -7,7 +7,7 @@ public class LoanHelper
 {
     public bool LoanBusinessalidation(Loan loan)
     {   
-        if (loan.PrincipalAmount < 10000 || loan.InterestRate < 1 || loan.TermsMonth > 60)
+        if (loan.PrincipalAmount < 10000 || loan.InterestRate > 30 || loan.TermsMonth > 60)
             return false;
 
         return true;

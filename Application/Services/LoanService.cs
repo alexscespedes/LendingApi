@@ -18,7 +18,10 @@ public class LoanService : ILoanService
 
     public async Task<bool> CreateLoan(Loan loan)
     {
-        _helper.LoanBusinessalidation(loan);
+        if (!_helper.LoanBusinessalidation(loan))
+        {
+            return false;
+        }
         
         await _repository.Create(loan);
         return true;
